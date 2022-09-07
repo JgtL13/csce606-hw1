@@ -4,15 +4,34 @@
 
 def sum(arr)
   # YOUR CODE HERE
-  
+  sum = 0
+  for i in arr
+    sum = sum + i
+  end
+  return sum
 end
 
 def max_2_sum(arr)
   # YOUR CODE HERE
+  sum = 0
+  for i in arr.max(2)
+    sum = sum + i
+  end
+  return sum
 end
 
 def sum_to_n?(arr, number)
   # YOUR CODE HERE
+  require 'set'
+  set = Set.new
+  for i in arr
+    if set.include?(number - i)
+      return true
+    else
+      set.add(i)
+    end
+  end
+  return false
 end
 
 # Part 2
