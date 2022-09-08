@@ -52,7 +52,7 @@ end
 def binary_multiple_of_4?(string)
   # YOUR CODE HERE
   # Binary will be multiple of 4 if it is ending in "00"
-  if string !=~ /[^01]/ and string =~ /0/ or string.end_with?("00")
+  if string !~ /[^01]/ and (string == "0" or string.end_with?("00"))
     return true
   end
   return false
@@ -63,4 +63,32 @@ end
 # Object representing a book
 class BookInStock
   # YOUR CODE HERE
+  def initialize(init_isbn, init_price)
+    raise ArgumentError.new(
+      "ISBN is an empty string!"
+    ) if init_isbn.empty?
+    raise ArgumentError.new(
+      "Price should be larger than 0!"
+    ) if init_price <= 0
+    @isbn = init_isbn
+    @price = init_price
+  end
+
+  def isbn
+    @isbn
+  end
+  def isbn=(new_isbn)
+    @isbn = new_isbn
+  end
+
+  def price
+    @price
+  end
+  def price=(new_price)
+    @price = new_price
+  end
+
+  def price_as_string
+    return "$%0.2f" % [@price]
+  end
 end
