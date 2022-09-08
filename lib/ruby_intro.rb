@@ -38,14 +38,24 @@ end
 
 def hello(name)
   # YOUR CODE HERE
+  return "Hello, " + name 
 end
 
 def starts_with_consonant?(string)
   # YOUR CODE HERE
+  if /[[:alpha:]]/.match(string[0]) and /[^AEIOUaeiou]/.match(string[0])
+    return true
+  end
+  return false
 end
 
 def binary_multiple_of_4?(string)
   # YOUR CODE HERE
+  # Binary will be multiple of 4 if it is ending in "00"
+  if not /[^01]/.match(string) and (string == "0" or string.end_with?("00"))
+    return true
+  end
+  return false
 end
 
 # Part 3
