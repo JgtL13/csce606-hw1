@@ -64,12 +64,16 @@ end
 class BookInStock
   # YOUR CODE HERE
   def initialize(init_isbn, init_price)
-    raise ArgumentError.new(
-      "ISBN is an empty string!"
-    ) if init_isbn.empty?
-    raise ArgumentError.new(
-      "Price should be larger than 0!"
-    ) if init_price <= 0
+    if init_isbn.empty?
+      raise ArgumentError.new(
+        "ISBN is an empty string!"
+      )
+    end
+    if init_price <= 0
+      raise ArgumentError.new(
+        "Price should be larger than 0!"
+      )
+    end 
     @isbn = init_isbn
     @price = init_price
   end
